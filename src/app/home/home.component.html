@@ -1,21 +1,36 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <img id="logo" src="assets/com.flavorpairlogo.png">
 </mat-toolbar>
 
+<header id="header">
+  <h1>Pair those spices</h1>
+</header>
+
 <mat-card id="home">
-    <input type="file" accept="image/*" capture="capture">
+  <!-- <input type="file" accept="image/*" capture="capture"> -->
   <form>
     <mat-form-field>
-      <input matInput placeholder="Favorite food" #query (keyup)="search(query.value)">
+      <input matInput placeholder="Favorite food" [formControl]="searchBox">
     </mat-form-field>
   </form>
 
   <mat-list>
-      <!-- <h3 mat-subheader>Here's some spices to go with that</h3> -->
-      <mat-list-item *ngFor="let recipe of recipes">
+      <h3 mat-subheader>Slow Cookers Loaded Potato Soup</h3>
+      <mat-list-item *ngFor="let recipe of recipes | async">
         <mat-icon mat-list-icon>folder</mat-icon>
-        <h4 mat-line>{{ recipe.title }}</h4>
-        <!-- <p mat-line> {{folder.updated | date}} </p> -->
+        <h4 mat-line [innerHTML]= "recipe.ingredientName"></h4>
+
+        <!-- <mat-chip-list mat-line>
+          <mat-chip>Slow Cookers Loaded Potato Soup</mat-chip>
+          <mat-chip>Two fish</mat-chip>
+          <mat-chip color="primary" selected="true">Primary fish</mat-chip>
+          <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+          <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+          <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+          <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+        </mat-chip-list> -->
       </mat-list-item>
+
+      
   </mat-list>
 </mat-card>

@@ -2,6 +2,7 @@
     width: 800px;
     margin: auto;
 }
+
 #logo {
     display: block;
     max-width:230px;
@@ -9,4 +10,27 @@
     width: auto;
     height: auto;
     margin: auto;
+}
+
+#header {
+    /* background-color: #D32F2F; */
+
+    background-image: url("https://cdn.shopify.com/s/files/1/0940/5860/files/shutterstock_113792470.jpg?1570759752634846635");
+    background-position: center center, center top;
+    background-repeat: repeat, no-repeat;
+    margin: 0;
+    min-height: 332px;
+    z-index: 0;
+}
+
+#header h1 {
+    font-size: 30px;
+    margin: 0;
+    font-weight: 100;
+    color: #FFFFFF;
+}
+
+mat-toolbar {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+    z-index: 1;
 }
