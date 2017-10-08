@@ -1,5 +1,5 @@
 #home {
-    width: 800px;
+    max-width: 800px;
     margin: auto;
 }
 
@@ -15,12 +15,26 @@
 #header {
     /* background-color: #D32F2F; */
 
-    background-image: url("https://cdn.shopify.com/s/files/1/0940/5860/files/shutterstock_113792470.jpg?1570759752634846635");
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url("https://cdn.shopify.com/s/files/1/0940/5860/files/shutterstock_113792470.jpg?1570759752634846635");
     background-position: center center, center top;
     background-repeat: repeat, no-repeat;
-    margin: 0;
     min-height: 332px;
     z-index: 0;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    
+
+}
+
+#upload {
 }
 
 #header h1 {
@@ -30,7 +44,18 @@
     color: #FFFFFF;
 }
 
+.tagline {
+    margin-right: 16px;
+}
+
 mat-toolbar {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
     z-index: 1;
+}
+
+#uploadLogo {
+    margin-top: 32px;
+    font-size: 128px;
+    width: 128px;
+    height: 128px;
 }

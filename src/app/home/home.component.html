@@ -3,7 +3,11 @@
 </mat-toolbar>
 
 <header id="header">
-  <h1>Pair those spices</h1>
+  <div id="upload" style="cursor: pointer" (click)="cameraButton.click()">
+    <input style="height:0px;display:none" type="file" accept="image/*" capture="camera" #cameraButton />
+    <mat-icon id="uploadLogo">photo_camera</mat-icon>
+    <h1>Take a picture of your food</h1>
+  </div>
 </header>
 
 <mat-card id="home">
@@ -14,23 +18,21 @@
     </mat-form-field>
   </form>
 
-  <mat-list>
-      <h3 mat-subheader>Slow Cookers Loaded Potato Soup</h3>
-      <mat-list-item *ngFor="let recipe of recipes | async">
-        <mat-icon mat-list-icon>folder</mat-icon>
-        <h4 mat-line [innerHTML]= "recipe.ingredientName"></h4>
-
-        <!-- <mat-chip-list mat-line>
-          <mat-chip>Slow Cookers Loaded Potato Soup</mat-chip>
-          <mat-chip>Two fish</mat-chip>
-          <mat-chip color="primary" selected="true">Primary fish</mat-chip>
-          <mat-chip color="accent" selected="true">Accent fish</mat-chip>
-          <mat-chip color="accent" selected="true">Accent fish</mat-chip>
-          <mat-chip color="accent" selected="true">Accent fish</mat-chip>
-          <mat-chip color="accent" selected="true">Accent fish</mat-chip>
-        </mat-chip-list> -->
-      </mat-list-item>
-
-      
-  </mat-list>
+  <mat-expansion-panel *ngFor="let recipe of recipes | async">
+    <mat-expansion-panel-header>
+      <mat-panel-title [innerHTML] = "recipe.ingredientName">
+      </mat-panel-title>
+      <span class="tagline">Used in 0 recipes.</span>
+    </mat-expansion-panel-header>
+    
+    <mat-chip-list>
+      <mat-chip>Slow Cookers Loaded Potato Soup</mat-chip>
+      <mat-chip>Two fish</mat-chip>
+      <mat-chip color="primary" selected="true">Primary fish</mat-chip>
+      <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+      <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+      <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+      <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+    </mat-chip-list>
+  </mat-expansion-panel>
 </mat-card>

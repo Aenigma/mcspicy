@@ -19,7 +19,8 @@ import {
   MatToolbarModule,
   MatListModule,
   MatIconModule,
-  MatChipsModule
+  MatChipsModule,
+  MatExpansionModule
 } from '@angular/material';
 import { HomeComponent } from './home/home.component'
 
@@ -41,7 +42,8 @@ import { HomeComponent } from './home/home.component'
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
-    MatChipsModule
+    MatChipsModule,
+    MatExpansionModule
   ],
   providers: [
     RecipesService
