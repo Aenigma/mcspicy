@@ -14,9 +14,13 @@
   <!-- <input type="file" accept="image/*" capture="capture"> -->
   <form>
     <mat-form-field>
-      <input matInput placeholder="Search for a food" [formControl]="searchBox">
+      <input matInput placeholder="Search for a food" (focus)="confidence = 0" [formControl]="searchBox">
     </mat-form-field>
   </form>
+
+  <div *ngIf="confidence != 0">
+    <md-card-subtitle>{{confidence}}% confidence</md-card-subtitle>
+  </div>
 
   <mat-expansion-panel *ngFor="let recipe of recipes | async">
     <mat-expansion-panel-header>

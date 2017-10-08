@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   searchBox = new FormControl();
   
   recipes: Observable<any>;
+  confidence: number = 0;
 
   constructor(private recipesService: RecipesService) { }
 
@@ -28,12 +29,11 @@ export class HomeComponent implements OnInit {
     this.recipes = this.recipesService.sendImage(formData)
       .map(
         (res: any) => {
-          this.searchBox.setValue(res.query)
+          this.confidence = Math.round(res.confidence);
+          this.searchBox.setValue(res.query);
           return res.result;
         }
       );
-
-    console.log(e);
   }
 
   ngOnInit() {
@@ -41,14 +41,11 @@ export class HomeComponent implements OnInit {
       .subscribe(
         // listen to value change
         (key: string) => {
-          this.recipes = this.recipesService.getRecipes(key)
-            .do(
-              (val) => {
-                console.log(val);
-              }
-            );
+          if (key && this.confidence == 0) {
+            this.recipes = this.recipesService.getRecipes(key);
+          }
         }
-      );
+      )
   }
 
 }
