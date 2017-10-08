@@ -10,12 +10,12 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private recipes: Observable<any>;
+  private recipes: any;
 
   constructor(private recipesService: RecipesService) { }
 
   ngOnInit() {
-    this.recipes = this.recipesService.getRecipes();
+    this.recipes = this.recipesService.getRecipes().content;
   }
 
 }

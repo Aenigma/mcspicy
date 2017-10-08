@@ -1,10 +1,13 @@
-<form>
-  <mat-form-field>
-    <input matInput placeholder="Favorite food" value="Sushi">
-  </mat-form-field>
-</form>
+<div id="home">
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Favorite food" value="Sushi">
+    </mat-form-field>
+  </form>
 
-<p *ngFor="let recipe of recipes | async">
-  home works!
-</p>
+  <p *ngFor="let recipe of recipes">
+    home works!
+  </p>
+</div>
+
 
