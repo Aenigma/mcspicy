@@ -1,5 +1,12 @@
 #home {
     width: 800px;
-    
+    margin: auto;
 }
-
+#logo {
+    display: block;
+    max-width:230px;
+    max-height:60px;
+    width: auto;
+    height: auto;
+    margin: auto;
+}

@@ -8,10 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RecipesService } from './recipes.service';
 
+
 import {
   MatButtonModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatCardModule,
+  MatToolbarModule,
+  MatListModule
 } from '@angular/material';
 import { HomeComponent } from './home/home.component'
 
@@ -26,7 +30,10 @@ import { HomeComponent } from './home/home.component'
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    HttpClientModule
+    MatCardModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [
     RecipesService
