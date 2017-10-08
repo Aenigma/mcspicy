@@ -16,4 +16,8 @@ export class RecipesService {
     return this.http.get("http://mcspicy.mybluemix.net/search/" + key/*, { headers: headers }*/);
   }
 
+  public sendImage(data: FormData) {
+    return this.http.post("http://mcspicy.mybluemix.net/ImageSuggest/", data);
+  }
+
 }

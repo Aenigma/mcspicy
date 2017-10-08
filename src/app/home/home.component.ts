@@ -16,46 +16,36 @@ import 'rxjs/add/operator/do';
 export class HomeComponent implements OnInit {
   searchBox = new FormControl();
   
-  private recipes: Observable<any>;
+  recipes: Observable<any>;
 
   constructor(private recipesService: RecipesService) { }
 
-  public flatten(arr) {
-    const flat = [].concat(...arr);
-    return flat.some(Array.isArray) ? this.flatten(flat) : flat;
-  }
+  public sendImage(e: any) {
+    var blobFile = e.target.files[0];
+    var formData = new FormData();
+    formData.append("image", blobFile);
 
-  public decode(str: string): string {
-    return str.replace(/&#(\d+);/g, function(match, dec) {
-      return String.fromCharCode(dec);
-    });
+    this.recipes = this.recipesService.sendImage(formData)
+      .map(
+        (res: any) => {
+          return res.result;
+        }
+      );
+
+    console.log(e);
   }
 
   ngOnInit() {
-    let arr = [[0, 1, 2], [3, 6], [4, 6, 7, 8, 6]];
-    console.log(arr);
-    console.log([].concat(...arr));
-
     this.searchBox.valueChanges.debounceTime(1000)
       .subscribe(
         // listen to value change
         (key: string) => {
-          this.recipes = this.recipesService.getRecipes(key).map(
-            (recipes: any) => {
-              return [].concat(...recipes.map(
-                (recipe: any) => {
-                  let ingredientBlocks = recipe.ingredients.filter(
-                    (ingredient: any) => ingredient.ingredientProductUpc != null
-                  )
-                  return ingredientBlocks;
-                }
-              ));
-            }
-          ).do(
-            (val: any) => {
-              console.log(val);
-            }
-          );
+          this.recipes = this.recipesService.getRecipes(key)
+            .do(
+              (val) => {
+                console.log(val);
+              }
+            );
         }
       );
   }
