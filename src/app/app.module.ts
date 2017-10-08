@@ -5,20 +5,26 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { RecipesService } from './recipes.service';
+
 import {
   MatButtonModule
-} from '@angular/material'
+} from '@angular/material';
+import { HomeComponent } from './home/home.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [
+    RecipesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
