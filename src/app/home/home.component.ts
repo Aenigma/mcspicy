@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.recipes = this.recipesService.sendImage(formData)
       .map(
         (res: any) => {
+          this.searchBox.setValue(res.query)
           return res.result;
         }
       );
